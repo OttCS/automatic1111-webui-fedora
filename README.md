@@ -48,21 +48,3 @@ After it's done though, try out the following prompt! It's sort of like a "Hello
 ```
 photograph of an astronaut riding a horse
 ```
-
-## Performance
-While the default settings are generally decent, there may be some small tweaks to make to the start command, depending on your situation.
-
-**General Optimization.** NVIDIA gpus should use `--xformers`, while AMD gpus should use `--opt-sub-quad-attention`. There's not a lot of reason to *not* use them.
-
-**Older GPUs.** `--no-half` and `--upcast-sampling` typically should fix issues if the ouput images are just solid green or black.
-
-**Running out of VRAM.** `--medvram` applies some memory optimizations. May result in slightly slower render times.
-
-If you want to always use your arguments without forgetting them, just add the arguments to the webui-user.sh file, as the COMMANDLINE_ARGS variable. I use the following:
-
-```
-# Commandline arguments for webui.py...
-export COMMANDLINE_ARGS="--xformers --medvram --no-half --upcast-sampling"
-```
-
-This way, it's always set up the way you like it.
